@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.black,
           centerTitle: true,
         ),
-        backgroundColor: Colors.greenAccent[100],
+        backgroundColor: Colors.blueGrey[100],
         body: const AAA(),
       ),
     );
@@ -32,21 +32,56 @@ class AAA extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        Container(
-          width: 1000,
-          height: 1500,
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.purpleAccent, width: 2),
+    return Container(
+      width: double.infinity,
+      height: 1500,
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.purpleAccent, width: 2),
+      ),
+      child: ListView(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              Container(
+                decoration: BoxDecoration(border: Border.all(color: Colors.indigo)),
+                padding: EdgeInsets.symmetric(horizontal: 100),
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      width: 300,
+                      height: 100,
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.red[500]!,
+                          ),
+                          borderRadius: BorderRadius.all(Radius.circular(50))),
+                      child: TextButton(onPressed: () {}, child: Text('data')),
+                    ),
+                  ],
+                ),
+              ),
+              Column(
+                children: <Widget>[
+                  Container(
+                    width: 300,
+                    height: 100,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.indigo),
+                      borderRadius: BorderRadius.all(Radius.circular(50)),
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 100),
+                  ),
+                ],
+              ),
+            ],
           ),
-          // width: double.infinity,
-          // height: double.infinity,
-          child: Column(
-            children: <Widget>[],
-          ),
-        ),
-      ],
+        ],
+      ),
     );
+  }
+
+  Widget _padding() {
+    return Text('data');
   }
 }
